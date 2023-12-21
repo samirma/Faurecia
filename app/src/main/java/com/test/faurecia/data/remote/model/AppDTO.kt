@@ -3,11 +3,11 @@ package com.test.faurecia.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class DTO(
+data class AppDTO(
     @SerializedName("added")
     val added: String,
-    @SerializedName("apk_tags")
-    val apkTags: List<AnyDTO>,
+//    @SerializedName("apk_tags")
+//    val apkTags: List<AnyDTO>,
     @SerializedName("downloads")
     val downloads: Int,
     @SerializedName("graphic")

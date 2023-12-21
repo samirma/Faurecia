@@ -9,7 +9,7 @@ data class DataDTO(
     @SerializedName("limit")
     val limit: Int,
     @SerializedName("list")
-    val list: DTOLDTOiDTOsDTOtDTO<DTO>DTO,
+    val list: List<AppDTO>,
     @SerializedName("next")
     val next: Int,
     @SerializedName("offset")
