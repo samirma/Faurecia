@@ -1,7 +1,7 @@
 package com.test.faurecia.di
 
 import com.test.faurecia.data.remote.ApiService
-import com.test.faurecia.data.remote.Repository
+import com.test.faurecia.data.remote.RemoteRepository
 import com.test.faurecia.data.remote.RepositoryImpl
 import dagger.Binds
 import dagger.Module
@@ -35,5 +35,5 @@ object NetworkModule {
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
     @Binds
-    abstract fun bindAppRepository(impl: RepositoryImpl): Repository
+    abstract fun bindAppRepository(impl: RepositoryImpl): RemoteRepository
 }

@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
     private val apiService: ApiService,
-) : Repository {
+) : RemoteRepository {
     override suspend fun getApps(): Result<ListAppsResponseDTO> = withContext(Dispatchers.Default) {
         return@withContext Result.runCatching { apiService.listApps() }
     }

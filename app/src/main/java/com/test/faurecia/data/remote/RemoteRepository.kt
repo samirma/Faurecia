@@ -2,6 +2,6 @@ package com.test.faurecia.data.remote
 
 import com.test.faurecia.data.remote.model.ListAppsResponseDTO
 
-interface Repository {
+interface RemoteRepository {
     suspend fun getApps(): Result<ListAppsResponseDTO>
 }
