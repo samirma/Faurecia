@@ -1,14 +1,12 @@
 package com.test.faurecia.userCases
 
-import org.junit.Assert.*
-
 import com.appmattus.kotlinfixture.Fixture
 import com.test.faurecia.data.local.LocalRepository
 import com.test.faurecia.data.local.model.App
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.assertEquals
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

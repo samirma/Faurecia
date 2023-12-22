@@ -1,4 +1,5 @@
 package com.test.faurecia.feature.list
+
 import com.appmattus.kotlinfixture.Fixture
 import com.test.faurecia.MainCoroutineRule
 import com.test.faurecia.data.local.model.App
@@ -8,7 +9,6 @@ import com.test.faurecia.feature.list.model.ListState
 import com.test.faurecia.userCases.GetAppsListUseCase
 import io.mockk.coEvery
 import io.mockk.mockk
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals

@@ -27,7 +27,11 @@ class GetAppsListUseCaseTest {
 
     @Before
     fun setup() {
-        getAppsListUseCase = GetAppsListUseCase(getLocalAppsListUseCase, getRemoteAppsListUseCase, saveAppListUseCase)
+        getAppsListUseCase = GetAppsListUseCase(
+            getLocalAppsListUseCase,
+            getRemoteAppsListUseCase,
+            saveAppListUseCase
+        )
     }
 
     @Test

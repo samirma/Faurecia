@@ -1,7 +1,5 @@
 package com.test.faurecia.feature.detail
 
-import org.junit.Assert.*
-
 import com.appmattus.kotlinfixture.Fixture
 import com.test.faurecia.MainCoroutineRule
 import com.test.faurecia.data.local.model.App
@@ -13,7 +11,7 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.assertEquals
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -57,7 +55,7 @@ class AppDetailViewModelTest {
     fun `fetchApp throws exception`() = runTest {
 
         val appId = fixture<String>()
-        coEvery { getAppById(appId) } returns  Result.failure(RuntimeException("Network error"))
+        coEvery { getAppById(appId) } returns Result.failure(RuntimeException("Network error"))
 
         appDetailViewModel.fetchApp(appId)
 
