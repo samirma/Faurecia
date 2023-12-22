@@ -18,7 +18,7 @@ class RemoteRepositoryImplTest {
 
     private val apiService: ApiService = mockk()
 
-    lateinit var remoteRepositoryImpl: RemoteRepository
+    lateinit var remoteRepositoryImpl: RemoteRepositoryImpl
 
     private val fixture = Fixture()
 
