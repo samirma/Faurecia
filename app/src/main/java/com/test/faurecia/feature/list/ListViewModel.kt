@@ -27,13 +27,13 @@ class ListViewModel @Inject constructor(
     val state: StateFlow<ListState> get() = _state
 
     fun fetchAppsList() = viewModelScope.launch {
-        getAppsList().collect { appList ->
-            _state.value = try {
-                Loaded(map(appList))
-            } catch (e: Exception) {
-                Log.e(TAG, e.message, e)
-                ListState.Error
+        try {
+            getAppsList().collect { appList ->
+                _state.value = Loaded(map(appList))
             }
+        } catch (e: Exception) {
+            Log.e(TAG, e.message, e)
+            _state.value = ListState.Error
         }
     }
 
