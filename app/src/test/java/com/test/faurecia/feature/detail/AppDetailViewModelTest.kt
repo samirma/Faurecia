@@ -27,13 +27,13 @@ class AppDetailViewModelTest {
     private val getAppById: GetAppByIdUseCase = mockk()
     private val mapper: AppDetailMapper = mockk()
 
-    private lateinit var appDetailViewModel: AppDetailViewModel
+    private lateinit var appDetailViewModel: DetailViewModel
 
     private val fixture = Fixture()
 
     @Before
     fun setup() {
-        appDetailViewModel = AppDetailViewModel(getAppById, mapper)
+        appDetailViewModel = DetailViewModel(getAppById, mapper)
     }
 
     @Test

@@ -15,10 +15,10 @@ class GetAppsListUseCase @Inject constructor(
     // saves the fetched list to the local database.
     operator fun invoke(): Flow<List<App>> = getLocalAppsListUseCase()
         .onEach {
-            println(it)
             if (it.isEmpty()) {
-                val remoteAppList = getRemoteAppsListUseCase()
-                saveAppListUseCase(remoteAppList.getOrThrow())
+                saveAppListUseCase(
+                    list = getRemoteAppsListUseCase().getOrThrow()
+                )
             }
         }
 }

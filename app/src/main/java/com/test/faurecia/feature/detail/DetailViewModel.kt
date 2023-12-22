@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.test.faurecia.feature.detail.model.AppDetailMapper
 import com.test.faurecia.feature.detail.model.DetailState
+import com.test.faurecia.feature.detail.model.DetailState.Error
 import com.test.faurecia.feature.detail.model.DetailState.Loaded
 import com.test.faurecia.feature.detail.model.DetailState.Loading
 import com.test.faurecia.userCases.GetAppByIdUseCase
@@ -15,13 +16,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AppDetailViewModel @Inject constructor(
+class DetailViewModel @Inject constructor(
     private val getAppById: GetAppByIdUseCase,
     private val mapper: AppDetailMapper,
 ) : ViewModel() {
 
     companion object {
-        private val TAG = AppDetailViewModel::class.java.simpleName
+        private val TAG = DetailViewModel::class.java.simpleName
     }
 
     private val _state = MutableStateFlow<DetailState>(Loading)
@@ -30,11 +31,13 @@ class AppDetailViewModel @Inject constructor(
     fun fetchApp(appId: String) = viewModelScope.launch {
         _state.value = getAppById(appId).fold(
             onSuccess = {
-                Loaded(mapper(it))
+                Loaded(
+                    appDetailView = mapper(app = it)
+                )
             },
             onFailure = {
                 Log.e(TAG, it.message, it)
-                DetailState.Error
+                Error
             }
         )
     }

@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 // Use case for saving a list of app items to the database
 class SaveAppListUseCase @Inject constructor(
-    private val repository: LocalRepository  // Injected via Hilt
+    private val repository: LocalRepository
 ) {
     suspend operator fun invoke(list: List<App>) {
         repository.saveList(list)

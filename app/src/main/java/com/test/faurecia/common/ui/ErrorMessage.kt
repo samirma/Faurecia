@@ -10,7 +10,13 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun ErrorMessage(message: String) {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = message, style = MaterialTheme.typography.headlineLarge)
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = message,
+            style = MaterialTheme.typography.headlineLarge
+        )
     }
 }

@@ -5,4 +5,7 @@
     <string name="download_is_not_available">Download is not available in demo mode.</string>
     <string name="ok">OK</string>
     <string name="an_error_occurred">An error occurred</string>
+    <string name="app_detail_title">App Detail</string>
+    <string name="back">Back</string>
+    <string name="app_icon">App Icon</string>
 </resources>

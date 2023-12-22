@@ -38,9 +38,10 @@ import com.test.faurecia.feature.list.model.ListState.Error
 import com.test.faurecia.feature.list.model.ListState.Loaded
 import com.test.faurecia.feature.list.model.ListState.Loading
 
-
 @Composable
-fun AppListNavigation(navController: NavController, viewModel: ListViewModel = hiltViewModel()) {
+fun AppListNavigation(navController: NavController) {
+
+    val viewModel: ListViewModel = hiltViewModel()
 
     val state by viewModel.state.collectAsState()
 
@@ -96,7 +97,7 @@ private fun AppCard(
         ) {
             Image(
                 painter = rememberImagePainter(data = app.icon),
-                contentDescription = "App Icon",
+                contentDescription = stringResource(R.string.app_icon),
                 modifier = Modifier.size(64.dp)
             )
             Spacer(modifier = Modifier.width(16.dp))

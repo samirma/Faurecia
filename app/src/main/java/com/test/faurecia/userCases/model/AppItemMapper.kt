@@ -16,7 +16,9 @@ class AppItemMapper @Inject constructor() {
                 .datasets
                 .all
                 .data
-                .list.map { map(it) }
+                .list.map {
+                    map(it)
+                }
         }
 
     private fun map(appItem: AppDTO) = App(

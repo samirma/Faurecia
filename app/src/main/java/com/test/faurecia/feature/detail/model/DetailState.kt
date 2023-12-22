@@ -7,7 +7,7 @@ sealed class DetailState {
     data object Loading : DetailState()
 
     data class Loaded(
-        val app: AppDetailView
+        val appDetailView: AppDetailView
     ) : DetailState()
 
 }

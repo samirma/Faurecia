@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 // Use case for getting an app item by its ID
 class GetAppByIdUseCase @Inject constructor(
-    private val repository: LocalRepository  // Injected via Hilt
+    private val repository: LocalRepository
 ) {
     suspend operator fun invoke(appId: String): Result<App> = withContext(Dispatchers.Default) {
         Result.runCatching { repository.getAppById(appId) }

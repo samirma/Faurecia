@@ -10,7 +10,5 @@ class GetLocalAppsListUseCase @Inject constructor(
     private val repository: LocalRepository
 ) {
 
-    operator fun invoke(): Flow<List<App>> {
-        return repository.getAppList()
-    }
+    operator fun invoke(): Flow<List<App>> = repository.getAppList()
 }
