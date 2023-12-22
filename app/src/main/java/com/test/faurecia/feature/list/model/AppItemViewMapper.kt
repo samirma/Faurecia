@@ -16,7 +16,7 @@ class AppItemViewMapper @Inject constructor() {
         return AppItemView(
             name = appItem.name,
             icon = appItem.icon,
-            graphic = appItem.graphic,
+            graphic = appItem.banner,
             rating = appItem.rating.toInt()
         )
     }

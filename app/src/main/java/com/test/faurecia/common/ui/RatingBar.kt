@@ -1,4 +1,4 @@
-package com.test.faurecia.feature.list
+package com.test.faurecia.common.ui
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding

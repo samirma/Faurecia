@@ -6,7 +6,7 @@ sealed class ListState() {
 
     data object Loading : ListState()
 
-    data class ListViewModelState(
+    data class Loaded(
         val appList: List<AppItemView>
     ) : ListState()
 

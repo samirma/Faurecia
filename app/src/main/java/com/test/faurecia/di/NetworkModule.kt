@@ -33,7 +33,7 @@ object NetworkModule {
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class RepositoryModule {
+abstract class RemoteRepositoryModule {
     @Binds
     abstract fun bindAppRepository(impl: RepositoryImpl): RemoteRepository
 }

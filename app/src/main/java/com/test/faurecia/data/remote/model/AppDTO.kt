@@ -11,7 +11,7 @@ data class AppDTO(
     @SerializedName("downloads")
     val downloads: Int,
     @SerializedName("graphic")
-    val graphic: String,
+    val graphic: String?,
     @SerializedName("icon")
     val icon: String,
     @SerializedName("id")

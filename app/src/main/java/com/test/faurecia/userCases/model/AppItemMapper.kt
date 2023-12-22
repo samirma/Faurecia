@@ -1,14 +1,16 @@
 package com.test.faurecia.userCases.model
 
+import com.test.faurecia.data.local.model.App
 import com.test.faurecia.data.remote.model.AppDTO
 import com.test.faurecia.data.remote.model.ListAppsResponseDTO
+import com.test.faurecia.feature.detail.model.AppDetailView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class AppItemMapper @Inject constructor() {
 
-    suspend operator fun invoke(appList: ListAppsResponseDTO): List<AppItem> =
+    suspend operator fun invoke(appList: ListAppsResponseDTO): List<App> =
         withContext(Dispatchers.Default) {
             appList.responses
                 .listApps
@@ -18,10 +20,11 @@ class AppItemMapper @Inject constructor() {
                 .list.map { map(it) }
         }
 
-    private fun map(appItem: AppDTO) = AppItem(
+    private fun map(appItem: AppDTO) = App(
+        id = appItem.id.toString(),
         name = appItem.name,
         icon = appItem.icon,
-        graphic = appItem.graphic,
+        banner = appItem.graphic,
         rating = appItem.rating
     )
 
