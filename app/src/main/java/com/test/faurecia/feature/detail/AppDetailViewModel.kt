@@ -28,12 +28,14 @@ class AppDetailViewModel @Inject constructor(
     val state: StateFlow<DetailState> get() = _state
 
     fun fetchApp(appId: String) = viewModelScope.launch {
-        try {
-            val app = getAppById(appId)
-            _state.value = Loaded(mapper(app))
-        } catch (e: Exception) {
-            Log.e(TAG, e.message, e)
-            _state.value = DetailState.Error
-        }
+        _state.value = getAppById(appId).fold(
+            onSuccess = {
+                Loaded(mapper(it))
+            },
+            onFailure = {
+                Log.e(TAG, it.message, it)
+                DetailState.Error
+            }
+        )
     }
 }
