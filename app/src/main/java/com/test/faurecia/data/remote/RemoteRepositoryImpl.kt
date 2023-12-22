@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class RepositoryImpl @Inject constructor(
+class RemoteRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
 ) : RemoteRepository {
     override suspend fun getApps(): Result<ListAppsResponseDTO> = withContext(Dispatchers.Default) {
