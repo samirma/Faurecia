@@ -17,7 +17,7 @@ class GetAppsListUseCase @Inject constructor(
         .onEach {
             if (it.isEmpty()) {
                 val remoteAppList = getRemoteAppsListUseCase()
-                saveAppListUseCase(remoteAppList)
+                saveAppListUseCase(remoteAppList.getOrThrow())
             }
         }
 }

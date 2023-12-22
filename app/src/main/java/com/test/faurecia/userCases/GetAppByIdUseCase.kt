@@ -10,7 +10,7 @@ import javax.inject.Inject
 class GetAppByIdUseCase @Inject constructor(
     private val repository: LocalRepository  // Injected via Hilt
 ) {
-    suspend operator fun invoke(appId: String): Result<App> = withContext(Dispatchers.Main) {
+    suspend operator fun invoke(appId: String): Result<App> = withContext(Dispatchers.Default) {
         Result.runCatching { repository.getAppById(appId) }
     }
 }
