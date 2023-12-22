@@ -28,9 +28,9 @@ class GetAppsListUseCaseTest {
     @Before
     fun setup() {
         getAppsListUseCase = GetAppsListUseCase(
-            getLocalAppsListUseCase,
-            getRemoteAppsListUseCase,
-            saveAppListUseCase
+            getLocalAppsListUseCase = getLocalAppsListUseCase,
+            getRemoteAppsListUseCase = getRemoteAppsListUseCase,
+            saveAppListUseCase = saveAppListUseCase
         )
     }
 
@@ -54,10 +54,10 @@ class GetAppsListUseCaseTest {
     @Test
     fun `invoke returns remote list when local list is empty`() = runTest {
         val expected = fixture<List<App>>()
-        coEvery { getLocalAppsListUseCase() } returns flowOf(emptyList())
+        coEvery { getLocalAppsListUseCase() } returns flowOf(emptyList(), fixture<List<App>>())
         coEvery { getRemoteAppsListUseCase() } returns Result.success(expected)
 
-        getAppsListUseCase()
+        getAppsListUseCase().toList()
 
         // Verify that the local repository was queried
         coVerify { getLocalAppsListUseCase() }

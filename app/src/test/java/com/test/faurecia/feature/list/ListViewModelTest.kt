@@ -29,7 +29,7 @@ class ListViewModelTest {
     private val appItemViewMapper: AppItemViewMapper = mockk()
     private val fixture = Fixture()
 
-    lateinit var listViewModel: ListViewModel
+    private lateinit var listViewModel: ListViewModel
 
     @Before
     fun setup() {
