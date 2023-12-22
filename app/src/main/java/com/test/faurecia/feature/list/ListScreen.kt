@@ -28,6 +28,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.test.faurecia.R
+import com.test.faurecia.Route
 import com.test.faurecia.common.ui.ErrorMessage
 import com.test.faurecia.common.ui.LoadingIndicator
 import com.test.faurecia.common.ui.RatingBar
@@ -48,7 +49,7 @@ fun AppListNavigation(navController: NavController, viewModel: ListViewModel = h
     }
 
     AppListScreen(state) { app: AppItemView ->
-        navController.navigate("appDetail/${app.id}")
+        navController.navigate(Route.getDetailUrlById(app.id))
     }
 
 }

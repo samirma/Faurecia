@@ -28,10 +28,10 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val navController = rememberNavController()
                     NavHost(navController, startDestination = "appList") {
-                        composable("appList") {
+                        composable(Route.LIST) {
                             AppListNavigation(navController = navController)
                         }
-                        composable("appDetail/{appId}") { backStackEntry ->
+                        composable(Route.DETAIL) { backStackEntry ->
                             val appId = backStackEntry.arguments?.getString("appId").orEmpty()
                             AppDetailNavigation(
                                 navController = navController,
