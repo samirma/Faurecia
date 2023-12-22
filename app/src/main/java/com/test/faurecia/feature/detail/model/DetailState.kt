@@ -1,6 +1,6 @@
 package com.test.faurecia.feature.detail.model
 
-sealed class DetailState() {
+sealed class DetailState {
 
     data object Error : DetailState()
 

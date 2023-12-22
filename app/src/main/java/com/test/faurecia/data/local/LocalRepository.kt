@@ -1,8 +1,11 @@
 package com.test.faurecia.data.local
 
-import com.test.faurecia.userCases.model.AppItem
+import com.test.faurecia.data.local.model.App
+import kotlinx.coroutines.flow.Flow
+
 
 interface LocalRepository {
-    suspend fun getAppById(appId: String): AppItem
-    suspend fun saveList(list: List<AppItem>)
+    suspend fun getAppById(appId: String): App
+    fun getAppList(): Flow<List<App>>
+    suspend fun saveList(list: List<App>)
 }

@@ -11,9 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.test.faurecia.feature.detail.AppDetailNavigation
-import com.test.faurecia.feature.detail.AppDetailScreen
 import com.test.faurecia.feature.list.AppListNavigation
-import com.test.faurecia.feature.list.AppListScreen
 import com.test.faurecia.ui.theme.FaureciaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,11 +29,14 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(navController, startDestination = "appList") {
                         composable("appList") {
-                            AppListNavigation(navController)
+                            AppListNavigation(navController = navController)
                         }
                         composable("appDetail/{appId}") { backStackEntry ->
                             val appId = backStackEntry.arguments?.getString("appId").orEmpty()
-                            AppDetailNavigation(appId)
+                            AppDetailNavigation(
+                                navController = navController,
+                                appId = appId
+                            )
                         }
                     }
                 }

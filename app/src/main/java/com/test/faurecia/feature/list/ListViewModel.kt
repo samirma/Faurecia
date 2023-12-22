@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.test.faurecia.feature.list.model.AppItemViewMapper
 import com.test.faurecia.feature.list.model.ListState
 import com.test.faurecia.feature.list.model.ListState.Loaded
-import com.test.faurecia.userCases.GetRemoteAppsListUseCase
+import com.test.faurecia.userCases.GetAppsListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ListViewModel @Inject constructor(
-    private val getAppsList: GetRemoteAppsListUseCase,
+    private val getAppsList: GetAppsListUseCase,
     private val map: AppItemViewMapper
 ) : ViewModel() {
 
@@ -27,13 +27,14 @@ class ListViewModel @Inject constructor(
     val state: StateFlow<ListState> get() = _state
 
     fun fetchAppsList() = viewModelScope.launch {
-        _state.value = ListState.Loading
-        try {
-            val appList = getAppsList()
-            _state.value = Loaded(map(appList))
-        } catch (e: Exception) {
-            Log.e(TAG, e.message, e)
-            _state.value = ListState.Error
+        getAppsList().collect { appList ->
+            _state.value = try {
+                Loaded(map(appList))
+            } catch (e: Exception) {
+                Log.e(TAG, e.message, e)
+                ListState.Error
+            }
         }
     }
+
 }

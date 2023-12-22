@@ -1,6 +1,6 @@
 package com.test.faurecia.feature.list.model
 
-sealed class ListState() {
+sealed class ListState {
 
     data object Error : ListState()
 

@@ -3,7 +3,6 @@ package com.test.faurecia.userCases.model
 import com.test.faurecia.data.local.model.App
 import com.test.faurecia.data.remote.model.AppDTO
 import com.test.faurecia.data.remote.model.ListAppsResponseDTO
-import com.test.faurecia.feature.detail.model.AppDetailView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
